@@ -1,84 +1,100 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nijirow kobayashi — プロフィール</title>
-    <!-- Theme color (monotone) -->
-    <meta name="theme-color" content="#111827">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap (CDN) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#ffffff">
+	<title>nijirow kobayashi — Profile</title>
+	<meta name="description" content="小林虹朗（nijirow kobayashi）のモバイル向けプロフィールカード。">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-light text-dark">
-    <header class="py-4 bg-white shadow-sm">
-        <div class="container d-flex align-items-center gap-3">
-            <h1 class="h4 mb-0">nijirow kobayashi</h1>
-            <small class="text-muted">自然と広義のデザインが好きです。</small>
-        </div>
-    </header>
+<body>
+	<header class="masthead">
+		<div class="wrap">
+			<p class="eyebrow">Profile</p>
+			<h1>小林 虹朗</h1>
+			<p class="subname">nijirow kobayashi</p>
+			<p class="tagline">武蔵野EMC5期生</p>
+		</div>
+	</header>
 
-    <main class="container py-5">
-        <div class="profile-card mx-auto">
-          <div class="row g-4 align-items-center">
-            <div class="col-md-4 text-center">
-                <!-- PROFILE IMAGE: place your image at assets/images/img_7570.jpg -->
-                <div class="profile-photo mb-3 mx-auto">
-                    <img src="img_7570.jpg" alt="小林 虹朗 (nijirow kobayashi)" class="img-fluid rounded-circle">
-                </div>
-                <p class="mb-1"><strong>小林 虹朗</strong></p>
-                <p class="text-muted">nijirow kobayashi</p>
-                <div class="d-grid gap-2">
-                    <button id="download" class="btn btn-primary">vCardをダウンロード</button>
-                    <a class="btn btn-outline-secondary" href="https://example.com" target="_blank" rel="noopener" id="website-link">Website</a>
-                </div>
-            </div>
+	<main>
+		<section class="profile-overview">
 
-            <div class="col-md-8">
-                <section class="mb-4">
-                    <h2 class="h5">自己紹介</h2>
-                    <p>自然と広義のデザインが好きです。武蔵野大学アントレプレナーシップ学部29卒。元ぶんじ寮住人。N高等学校卒。三鷹市在住。</p>
-                    <p>中学4日で不登校→N高校→教育塾アルバイトインターンで新規事業2つ創出(失敗)→武蔵野EMC</p>
-                </section>
+			<figure class="portrait compact">
+				<img src="img_7570.jpg" alt="小林 虹朗 (nijirow kobayashi)">
+			</figure>
 
-                <section class="mb-4">
-                    <h3 class="h6">学歴・経歴</h3>
-                    <ul>
-                        <li>N高等学校 卒</li>
-                        <li>武蔵野大学 アントレプレナーシップ学部（2029卒）</li>
-                        <li>教育塾でアルバイト・インターン（新規事業立案）</li>
-                    </ul>
-                </section>
+			<p class="bio">武蔵野大学アントレプレナーシップ学部29卒。元N高等学校。元ぶんじ寮住人。
+            </p>
 
-                <section class="mb-4">
-                    <h3 class="h6">趣味</h3>
-                    <p>アート、音楽、キャンプ、洋服</p>
-                </section>
+			<ul class="chips">
+				<li>音楽</li>
+				<li>キャンプ</li>
+				<li>アート</li>
+				<li>ゲーム</li>
+			</ul>
 
-                <section>
-                    <h3 class="h6">SNS</h3>
-                    <ul>
-                        <li><a href="https://www.facebook.com/profile.php?id=100072821924660" target="_blank" rel="noopener">Facebook</a></li>
-                        <li><a href="https://www.instagram.com/nijir_o/" target="_blank" rel="noopener">Instagram</a></li>
-                        <li><a href="mailto:niji1012buster@gmail.com">Email</a></li>
-                        <li>電話: <a href="tel:07075473565">070-7547-3565</a></li>
-                    </ul>
-                </section>
-            </div>
-          </div>
-        </div>
-    </main>
+			<div class="actions inline">
+				<a class="btn primary" href="https://www.instagram.com/nijir_o/" target="_blank" rel="noopener">Instagram</a>
+				<a class="btn ghost" href="https://www.facebook.com/profile.php?id=100072821924660" target="_blank" rel="noopener">Facebook</a>
+			</div>
+		</section>
 
-    <footer class="py-4 bg-white text-center">
-        <div class="container text-muted small">© nijirow kobayashi</div>
-    </footer>
+		<section class="timeline">
+			<div class="section-heading">
+				<p class="eyebrow">Journey</p>
+				<h2>これまで</h2>
+			</div>
+			<ol>
+				<li>
+					<p class="period">中学時代</p>
+					<p class="entry">中学4日で不登校。ビデオゲームに明け暮れる。コロナで修学旅行等中止になったが何も影響なかった。</p>
+				</li>
+				<li>
+					<p class="period">高校時代</p>
+					<p class="entry">N高等学校入学。プロジェクト学習でアサヒ飲料のCM採択。時に米沢で小学生とチャンバラ合戦。興味開発塾探究学舎アルバイト。
+                        またインターンで新規事業NFT認証サービス、公園DX化事業を立ち上げ/PM結果惨敗。趣味で一風変わった学校を紹介する進路イベントを企画/登壇。
+                        おいちゃんファンドが降りたことで能楽に半年触れる。大人の集うルールのないシェアハウスぶんじ寮に1年住んだが、住人にロードバイクを壊され逃げられる。
+                        完全身内オープン排他的哲学カフェ中高生カフェ主宰/取り乱し役。人の名前を覚えるためトランプ52枚の順番暗記トレーニングをするも未だ3人すら覚えられない。</p>
+				</li>
+				<li>
+					<p class="period">武蔵野EMC</p>
+					<p class="entry">学部長のメッセージに一目惚れし入学を決意。現在人生迷走中。最近貯金が尽きた。</p>
+				</li>
+			</ol>
+		</section>
 
-    <!-- 外部スクリプト -->
-    <script src="/assets/js/main.js" defer></script>
+		<section class="story">
+			<div class="section-heading">
+				<p class="eyebrow">Focus</p>
+				<h2>視点</h2>
+			</div>
+			<p>
+			特技はトランプ52枚の順番を8分で記憶すること。苦手なことは人の名前を覚えること。
+			<p>
+			建築を始めとしたデザイン、アート、自然、人間が好きです。
+			</p>
+		</section>
+		<section class="contact">
+			<div>
+				<p class="label">Instagram</p>
+				<a href="https://www.instagram.com/nijir_o/" target="_blank" rel="noopener" class="contact-link">@nijir_o</a>
+			</div>
+			<div>
+				<p class="label">Facebook</p>
+				<a href="https://www.facebook.com/profile.php?id=100072821924660" target="_blank" rel="noopener" class="contact-link">facebook.com/nijirow</a>
+			</div>
+		</section>
+	</main>
 
-    <!-- Bootstrap JS (optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+	<footer>
+		<p>© nijirow kobayashi</p>
+	</footer>
+
+	<script src="main.js" defer></script>
 </body>
 </html>
