@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <!-- index.html -->
+        <button id="download">vCardをダウンロード</button>
+        <script>
+        const contact = {
+            fn: "山田 太郎",
+            email: "taro@example.com",
+            tel: "+81-90-1234-5678",
+            org: "例会社",
+            title: "エンジニア",
+            url: "https://example.com",
+            adr: {
+                street: "1-2-3",
+                city: "新宿区",
+                region: "東京都",
+                postal: "160-0022",
+                country: "Japan"
+            }
+        };
+
+        function makeVCard(c){
+            // シンプルな vCard 4.0 形式（必要に応じてエスケープや詳細追加を）
+            return [
+                "BEGIN:VCARD",
+                "VERSION:4.0",
+                `FN:${c.fn}`,
+                `N:${c.fn.split(" ").reverse().join(";")};;;;`, // 単純化
+                c.org ? `ORG:${c.org}` : "",
+                c.title ? `TITLE:${c.title}` : "",
+                c.tel ? `TEL;TYPE=cell:${c.tel}` : "",
+                c.email ? `EMAIL;TYPE=internet:${c.email}` : "",
+                c.url ? `URL:${c.url}` : "",
+                c.adr ? `ADR;TYPE=home:;;${c.adr.street};${c.adr.city};${c.adr.region};${c.adr.postal};${c.adr.country}` : "",
+                "END:VCARD"
+            ].filter(Boolean).join("\r\n");
+        }
+
+        document.getElementById("download").addEventListener("click", ()=>{
+            const vcardText = makeVCard(contact);
+            const blob = new Blob([vcardText], {type: "text/vcard;charset=utf-8"});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "contact.vcf";
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        });
+        </script>
+</body>
+</html>
