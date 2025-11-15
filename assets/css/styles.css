@@ -1,0 +1,8 @@
+/* Custom styles for nijirow kobayashi profile */
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.profile-photo { width: 200px; height: 200px; overflow: hidden; }
+.profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+a#website-link { font-size: .95rem; }
+@media (max-width: 767px) {
+  .profile-photo { width: 140px; height: 140px; }
+}

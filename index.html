@@ -1,59 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>nijirow kobayashi — プロフィール</title>
+        <!-- Bootstrap (CDN) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body>
-        <!-- index.html -->
-        <button id="download">vCardをダウンロード</button>
-        <script>
-        const contact = {
-            fn: "山田 太郎",
-            email: "taro@example.com",
-            tel: "+81-90-1234-5678",
-            org: "例会社",
-            title: "エンジニア",
-            url: "https://example.com",
-            adr: {
-                street: "1-2-3",
-                city: "新宿区",
-                region: "東京都",
-                postal: "160-0022",
-                country: "Japan"
-            }
-        };
+<body class="bg-light text-dark">
+    <header class="py-4 bg-white shadow-sm">
+        <div class="container d-flex align-items-center gap-3">
+            <h1 class="h4 mb-0">nijirow kobayashi</h1>
+            <small class="text-muted">自然と広義のデザインが好きです。</small>
+        </div>
+    </header>
 
-        function makeVCard(c){
-            // シンプルな vCard 4.0 形式（必要に応じてエスケープや詳細追加を）
-            return [
-                "BEGIN:VCARD",
-                "VERSION:4.0",
-                `FN:${c.fn}`,
-                `N:${c.fn.split(" ").reverse().join(";")};;;;`, // 単純化
-                c.org ? `ORG:${c.org}` : "",
-                c.title ? `TITLE:${c.title}` : "",
-                c.tel ? `TEL;TYPE=cell:${c.tel}` : "",
-                c.email ? `EMAIL;TYPE=internet:${c.email}` : "",
-                c.url ? `URL:${c.url}` : "",
-                c.adr ? `ADR;TYPE=home:;;${c.adr.street};${c.adr.city};${c.adr.region};${c.adr.postal};${c.adr.country}` : "",
-                "END:VCARD"
-            ].filter(Boolean).join("\r\n");
-        }
+    <main class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-4 text-center">
+                <!-- PROFILE IMAGE: place your image at assets/images/img_7570.jpg -->
+                <div class="profile-photo mb-3 mx-auto">
+                    <img src="/assets/images/img_7570.jpg" alt="小林 虹朗 (nijirow kobayashi)" class="img-fluid rounded-circle">
+                </div>
+                <p class="mb-1"><strong>小林 虹朗</strong></p>
+                <p class="text-muted">nijirow kobayashi</p>
+                <div class="d-grid gap-2">
+                    <button id="download" class="btn btn-primary">vCardをダウンロード</button>
+                    <a class="btn btn-outline-secondary" href="https://example.com" target="_blank" rel="noopener" id="website-link">Website</a>
+                </div>
+            </div>
 
-        document.getElementById("download").addEventListener("click", ()=>{
-            const vcardText = makeVCard(contact);
-            const blob = new Blob([vcardText], {type: "text/vcard;charset=utf-8"});
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "contact.vcf";
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            URL.revokeObjectURL(url);
-        });
-        </script>
+            <div class="col-md-8">
+                <section class="mb-4">
+                    <h2 class="h5">自己紹介</h2>
+                    <p>自然と広義のデザインが好きです。武蔵野大学アントレプレナーシップ学部29卒。元ぶんじ寮住人。N高等学校卒。三鷹市在住。</p>
+                    <p>中学4日で不登校→N高校→教育塾アルバイトインターンで新規事業2つ創出(失敗)→武蔵野EMC</p>
+                </section>
+
+                <section class="mb-4">
+                    <h3 class="h6">学歴・経歴</h3>
+                    <ul>
+                        <li>N高等学校 卒</li>
+                        <li>武蔵野大学 アントレプレナーシップ学部（2029卒）</li>
+                        <li>教育塾でアルバイト・インターン（新規事業立案）</li>
+                    </ul>
+                </section>
+
+                <section class="mb-4">
+                    <h3 class="h6">趣味</h3>
+                    <p>アート、音楽、キャンプ、洋服</p>
+                </section>
+
+                <section>
+                    <h3 class="h6">SNS</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/profile.php?id=100072821924660" target="_blank" rel="noopener">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/nijir_o/" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="mailto:niji1012buster@gmail.com">Email</a></li>
+                        <li>電話: <a href="tel:07075473565">070-7547-3565</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 bg-white text-center">
+        <div class="container text-muted small">© nijirow kobayashi</div>
+    </footer>
+
+    <!-- vCard script (kept and updated) -->
+    <script>
+    const contact = {
+        fn: "nijirow kobayashi",
+        email: "niji1012buster@gmail.com",
+        tel: "07075473565",
+        org: undefined,
+        title: undefined,
+        url: window.location.origin,
+    };
+
+    function makeVCard(c){
+        // vCard 3.0 互換で出力する（ユーザーの元データが 3.0 のため）
+        const lines = [
+            'BEGIN:VCARD',
+            'VERSION:3.0',
+            `FN:${c.fn}`,
+            // N: family;given;additional;prefix;suffix -> try split first/last
+            (function(){
+                const parts = c.fn.split(/\s+/);
+                if(parts.length>=2) return `N:${parts[parts.length-1]};${parts.slice(0, -1).join(' ')};;;`;
+                return `N:${c.fn};;;;`;
+            })(),
+        ];
+        if(c.tel) lines.push(`TEL;TYPE=CELL:${c.tel}`);
+        if(c.email) lines.push(`EMAIL;TYPE=HOME:${c.email}`);
+        if(c.url) lines.push(`URL:${c.url}`);
+        lines.push('END:VCARD');
+        return lines.join('\r\n');
+    }
+
+    document.getElementById('download').addEventListener('click', ()=>{
+        const vcardText = makeVCard(contact);
+        const blob = new Blob([vcardText], {type: 'text/vcard;charset=utf-8'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'nijirow_kobayashi.vcf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+    });
+    </script>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
