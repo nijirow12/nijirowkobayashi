@@ -1,8 +1,63 @@
-/* Custom styles for nijirow kobayashi profile */
-body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-.profile-photo { width: 200px; height: 200px; overflow: hidden; }
-.profile-photo img { width: 100%; height: 100%; object-fit: cover; }
-a#website-link { font-size: .95rem; }
-@media (max-width: 767px) {
-  .profile-photo { width: 140px; height: 140px; }
+/* Stylish responsive profile styles */
+:root{
+  --bg-1: #fbfdff;
+  --bg-2: #f1fbfb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#06b6d4; /* cyan */
+  --accent-2:#06b6d4cc;
 }
+html,body{height:100%;}
+body{
+  font-family: 'Inter', 'Noto Sans JP', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.container{max-width:1100px}
+.profile-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+  border-radius:18px;
+  padding:28px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.08);
+  border: 1px solid rgba(15,23,42,0.04);
+}
+.profile-photo{ width:220px; height:220px; overflow:hidden; border-radius:50%; margin:0 auto; display:block; box-shadow: 0 18px 40px rgba(15,23,42,0.08); }
+.profile-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.profile-meta{ text-align:center }
+.profile-meta h1{ font-size:1.6rem; margin-bottom:4px; font-weight:700 }
+.profile-meta p.lead{ color:var(--muted); margin-bottom:12px }
+.profile-actions{ margin-top:12px }
+.btn-primary{
+  background: linear-gradient(90deg,var(--accent), #0ea5a5);
+  border: none; color: #fff; font-weight:600; padding:10px 14px; border-radius:10px;
+  box-shadow: 0 8px 22px rgba(6,182,212,0.12);
+}
+.btn-outline-secondary{ border-radius:10px }
+.section-title{ font-size:1rem; font-weight:600; margin-bottom:10px }
+.social-list{ list-style:none; padding-left:0 }
+.social-list li{ margin-bottom:8px }
+.social-list a{ color:var(--accent); text-decoration:none }
+.muted{ color:var(--muted) }
+
+/* Responsive layout adjustments */
+@media (min-width: 992px){
+  .profile-card{ display:flex; gap:32px; align-items:center; padding:36px }
+  .profile-photo{ flex:0 0 220px }
+  .profile-body{ flex:1 }
+  .profile-meta{ text-align:left }
+}
+
+@media (max-width: 991px){
+  .profile-card{ padding:20px }
+  .profile-photo{ width:160px; height:160px }
+  .profile-meta h1{ font-size:1.25rem }
+}
+
+@media (max-width: 520px){
+  .profile-photo{ width:120px; height:120px }
+  .profile-meta h1{ font-size:1.05rem }
+}
+
+
