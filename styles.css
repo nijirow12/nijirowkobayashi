@@ -178,6 +178,10 @@ h2 {
 	color: var(--color-soft);
 }
 
+.text-ink {
+	color: var(--color-ink) !important;
+}
+
 .icon {
 	display: inline-flex;
 	width: 1.15rem;
@@ -284,8 +288,13 @@ h2 {
 	margin: 0;
 }
 
+.story {
+	margin-bottom: var(--space-5);
+}
+
 .story p {
 	color: var(--color-muted);
+	margin-bottom: var(--space-4);
 }
 
 .contact {
